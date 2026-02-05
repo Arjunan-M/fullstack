@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Technical Symposium Registration</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #c5e5fa;
+}
+
+form {
+  background-color: rgb(190, 176, 238);
+  padding: 20px;
+  width: 400px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+}
+
+button {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+}
+</style>
+</head>
+<body>
+
+<form>
+  <h2>Technical Symposium Registration</h2>
+
+  <!-- Participant Details -->
+  <label>Full Name:</label>
+  <input type="text" required>
+
+  <label>Email:</label>
+  <input type="email" required>
+
+  <label>Phone Number:</label>
+  <input type="tel" required>
+
+  <label>Institution Name:</label>
+  <input type="text" required>
+
+  <label>Department:</label>
+  <input type="text">
+
+  <label>Select Events:</label><br>
+  <input type="checkbox"> Paper Presentation <br>
+  <input type="checkbox"> Coding Contest <br>
+  <input type="checkbox"> Hackathon <br>
+  <input type="checkbox"> Quiz <br><br>
+
+  <!-- Date -->
+  <label>Event Date:</label>
+  <input type="date" required>
+
+  <!-- Additional Info -->
+  <label>Comments:</label>
+  <textarea rows="3"></textarea>
+
+  <br><br>
+  <button type="submit">Register</button>
+</form>
+
+</body>
+</html>
+.
