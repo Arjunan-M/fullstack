@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <style>
+            .gallery {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                height: 100vh; 
+            }
+
+            .b-style {
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+
+            #i1 {
+                border: 2px solid #ccc;
+                display: block; 
+            }
+        </style>
+    </head>
+    <body>
+
+    <div class="gallery">
+       
+        <input type='button' value='<--' id="b2" class="b-style"/>
+        <img id="i1" src="img1.jfif" width="200" height="200" />
+        <input type='button' value='-->' id="b1" class="b-style"/>
+    </div>
+
+    <script type="text/javascript">
+        var imgList = ["img1.jfif", "img2.jfif", "img3.jfif"];
+        var index = 0;
+        const nextBtn = document.getElementById("b1");
+        const prevBtn = document.getElementById("b2");
+        const mainImg = document.getElementById("i1");
+
+        nextBtn.onclick = () => {
+            index++; 
+            if (index == imgList.length) index = 0;
+            mainImg.src = imgList[index];
+        };
+        
+        prevBtn.onclick = () => {
+            index--; 
+            if (index == -1) index = imgList.length - 1;
+            mainImg.src = imgList[index];
+        };
+    </script>
+    
+    </body>
+</html>

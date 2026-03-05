@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hex Color Table</title>
+    
+</head>
+
+<body>
+
+<h2>Hexadecimal Color Table</h2>
+<p>Hover on a cell</p>
+
+<table border="1px solid-black" style="width:50%" style="height:100%">
+    <tr>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#FF5733</td>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#33FF57</td>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#3357FF</td>
+    </tr>
+    <tr>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#F1C40F</td>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#9B59B6</td>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#1ABC9C</td>
+    </tr>
+   <tr>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#F1A4AF</td>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#9759BF</td>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#BA1C93</td>
+    </tr>
+    <tr>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#FFCC00</td>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#115ABF</td>
+        <td onmouseover="show(this)" onmouseout="hide(this)">#AA7793</td>
+    </tr>
+</table>
+
+<script>
+    function show(td){
+        td.style.background = td.innerText;
+        td.style.color = "white";
+    }
+    function hide(td){
+        td.style.background = "white";
+        td.style.color = "black";
+    }
+</script>
+
+</body>
+</html>

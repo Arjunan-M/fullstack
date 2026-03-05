@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popup Detection</title>
+    <style>
+        body {
+            font-family: Arial;
+            
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #ee3737;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Popup Blocker Detection</h2>
+
+<button onclick="check()">Open Popup</button>
+
+<script>
+    function check(){
+        let p = window.open("", "", "width=250,height=150");
+        if(!p){
+            alert("Popup Blocked!");
+        } else {
+            p.document.write("<h3 style='text-align:center;'>Popup Allowed</h3>");
+        }
+    }
+</script>
+
+</body>
+</html>

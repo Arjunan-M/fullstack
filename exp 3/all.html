@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EX-3 JavaScript Programs</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background: #f4f6f8;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .menu li {
+            list-style: none;
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.1);
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .menu li:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Content Area */
+        .content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .box {
+            display: none;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            animation: fade 0.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        h3 {
+            margin-bottom: 15px;
+            color: #2a5298;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #2a5298;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e3c72;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        td {
+            width: 70px;
+            height: 70px;
+            border: 2px solid #333;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        ul li {
+            list-style: none;
+            padding: 10px;
+            border: 1px solid #333;
+            margin: 8px 0;
+            background: #f9f9f9;
+            cursor: grab;
+        }
+
+        .empty {
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Sidebar Menu -->
+<div class="sidebar">
+    <h2>JS EX-3</h2>
+    <ul class="menu">
+        <li onclick="show(1)">Hex Color Table</li>
+        <li onclick="show(2)">Dropdown Menu</li>
+        <li onclick="show(3)">Popup Detection</li>
+        <li onclick="show(4)">15 Puzzle Game</li>
+        <li onclick="show(5)">Compare Strings</li>
+        <li onclick="show(6)">Drag & Drop</li>
+        <li onclick="show(7)">Form Validation</li>
+    </ul>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+<!-- 1 -->
+<div class="box" id="box1">
+    <h3>Hexadecimal Color Table</h3>
+    <table>
+        <tr>
+            <td onmouseover="color(this)" onmouseout="reset(this)">#FF0000</td>
+            <td onmouseover="color(this)" onmouseout="reset(this)">#00FF00</td>
+            <td onmouseover="color(this)" onmouseout="reset(this)">#0000FF</td>
+        </tr>
+        <tr>
+            <td onmouseover="color(this)" onmouseout="reset(this)">#FFFF00</td>
+            <td onmouseover="color(this)" onmouseout="reset(this)">#FF00FF</td>
+            <td onmouseover="color(this)" onmouseout="reset(this)">#00FFFF</td>
+        </tr>
+    </table>
+</div>
+
+<!-- 2 -->
+<div class="box" id="box2">
+    <h3>Dropdown Menu</h3>
+    <button onclick="toggle()">Show Menu</button>
+    <div id="drop" style="display:none;">
+        <p>HTML</p>
+        <p>CSS</p>
+        <p>JavaScript</p>
+    </div>
+</div>
+
+<!-- 3 -->
+<div class="box" id="box3">
+    <h3>Popup Detection</h3>
+    <button onclick="popup()">Open Popup</button>
+</div>
+
+<!-- 4 -->
+<div class="box" id="box4">
+    <h3>15 Puzzle Game</h3>
+    <table id="puzzle"></table>
+</div>
+
+<!-- 5 -->
+<div class="box" id="box5">
+    <h3>Compare String Length</h3>
+    <button onclick="alert(comp('AB','CD'))">Test AB & CD</button>
+    <button onclick="alert(comp('ABC','DE'))">Test ABC & DE</button>
+</div>
+
+<!-- 6 -->
+<div class="box" id="box6">
+    <h3>Drag and Drop List</h3>
+    <ul id="list">
+        <li draggable="true">Item 1</li>
+        <li draggable="true">Item 2</li>
+        <li draggable="true">Item 3</li>
+    </ul>
+</div>
+
+<!-- 7 -->
+<div class="box" id="box7">
+    <h3>Form Validation</h3>
+    <form onsubmit="return validate()">
+        <input id="name" placeholder="Enter Name">
+        <br>
+        <button>Submit</button>
+        <p id="err" style="color:red;"></p>
+    </form>
+</div>
+
+</div>
+
+<script>
+    function show(n) {
+        document.querySelectorAll('.box').forEach(b => b.style.display = "none");
+        document.getElementById("box"+n).style.display = "block";
+    }
+
+    function color(td){ td.style.background = td.innerText; td.style.color="white"; }
+    function reset(td){ td.style.background="white"; td.style.color="black"; }
+
+    function toggle(){
+        let d = document.getElementById("drop");
+        d.style.display = d.style.display === "none" ? "block" : "none";
+    }
+
+    function popup(){
+        let p = window.open("", "", "width=200,height=150");
+        if(!p) alert("Popup Blocked!");
+        else p.document.write("<h3>Popup Opened</h3>");
+    }
+
+    function comp(a,b){ return a.length === b.length; }
+
+    function validate(){
+        if(document.getElementById("name").value===""){
+            document.getElementById("err").innerText="Name required!";
+            return false;
+        }
+        return true;
+    }
+
+    // 15 Puzzle
+    let nums = [...Array(15).keys()].map(i=>i+1).concat("");
+    nums.sort(()=>Math.random()-0.5);
+    let table = document.getElementById("puzzle");
+
+    function draw(){
+        table.innerHTML="";
+        nums.forEach((n,i)=>{
+            if(i%4===0) table.insertRow();
+            let c = table.rows[table.rows.length-1].insertCell();
+            c.innerText=n;
+            c.onclick=()=>move(i);
+            if(n==="") c.className="empty";
+        });
+    }
+
+    function move(i){
+        let e = nums.indexOf("");
+        if([i-1,i+1,i-4,i+4].includes(e)){
+            [nums[i],nums[e]]=[nums[e],nums[i]];
+            draw();
+        }
+    }
+    draw();
+
+    // Drag & Drop
+    let drag;
+    document.querySelectorAll("li").forEach(li=>{
+        li.ondragstart=()=>drag=li;
+        li.ondragover=e=>e.preventDefault();
+        li.ondrop=e=>{e.preventDefault(); li.before(drag);}
+    });
+
+    show(1);
+</script>
+
+</body>
+</html>

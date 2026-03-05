@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Dropdown Menu</title>
+    <style>
+        body { font-family: Arial; background: #e8f0ff; text-align: center; padding: 50px; }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .dropdown {
+            width: 180px;
+            position: relative; 
+        }
+
+        .btn {
+            background: #34495e;
+            color: white;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .btn:hover { background: #2c3e50; }
+
+        .items {
+            display: none; 
+            background: white;
+            border: 1px solid #333;
+            position: absolute; 
+            width: 100%;
+            z-index: 10;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .items div {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .items div:hover { background: #ddd; }
+    </style>
+</head>
+<body>
+
+<h2>MSEC PORTAL</h2>
+
+<div class="navbar">
+    <div class="dropdown" onmouseleave="hide('dept')">
+        <div class="btn" onmouseover="show('dept')">Departments</div>
+        <div class="items" id="dept">
+            <div>AIDS</div>
+            <div>CSE</div>
+            <div>IT</div>
+        </div>
+    </div>
+    <div class="dropdown" onmouseleave="hide('teach')">
+        <div class="btn" onmouseover="show('teach')">Teachers</div>
+        <div class="items" id="teach">
+            <div>Dr.J.Angela jennifa sujana</div>
+            <div>Mrs.A.Muthulakshmi</div>
+            <div>Mr.P.Thendral</div>
+        </div>
+    </div>
+    <div class="dropdown" onmouseleave="hide('acad')">
+        <div class="btn" onmouseover="show('acad')">Academics</div>
+        <div class="items" id="acad">
+            <div>Syllabus</div>
+            <div>Exams</div>
+            <div>Results</div>
+        </div>
+    </div>
+
+    <div class="dropdown" onmouseleave="hide('club')">
+        <div class="btn" onmouseover="show('club')">Clubs</div>
+        <div class="items" id="club">
+            <div>Co-curricular Club</div>
+            <div>Extra-curricular Club</div>
+            <div>Fine Arts Club</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    function show(id) {
+        document.getElementById(id).style.display = "block";
+    }
+
+    function hide(id) {
+        document.getElementById(id).style.display = "none";
+    }
+</script>
+
+</body>
+</html>
